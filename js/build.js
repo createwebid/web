@@ -250,7 +250,7 @@
               ch0: {
                 tagName:'img',
                 id: 'img-'+imageName,
-                src:'../assets/templates/'+imageName,
+                src:'img/twibbon/'+imageName,
                 style:{'background-color':'#cccccc'},
                 alt: imageName,   
                 class:"img-thumbnail",
