@@ -236,7 +236,24 @@
   </div>
 </main>
 
+  <script>
+	$(document).ready(function(){
+	$("#caption").click(function(){
+		this.select();
+		document.execCommand("copy");
+	});
+	$("#tooltipcopy").tooltip({trigger:'click',delay:{"show":500,"hide":200}});
+	$("#tooltipcopy").click(function(){
+		$("#caption").select();
+		document.execCommand("copy");
+		$("#tooltipcopy").attr('data-original-title','copied!').tooltip('show');
+	});
+	$("#tooltipcopy").mouseout(function(){
+		$("#tooltipcopy").tooltip('hide');
+	});
 
+	});
+</script>
     
   </body>
 </html>
