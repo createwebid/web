@@ -95,7 +95,7 @@ function displayFrameLists(frameCategoryIndex){
           ch0: {
             tagName:'img',
             id: 'img-'+imageName,
-            src: applicationVersion == 1 ? ('img/twibbon/'+imageName) : ('img/twibbon/'+imageName),
+            src: applicationVersion == 1 ? ('../assets/templates/'+imageName) : ('../../assets/templates/'+imageName),
             style:{'background-color':'#cccccc'},
             alt: imageName,   
             class:"img-thumbnail",
