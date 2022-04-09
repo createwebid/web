@@ -1,81 +1,51 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
-    <meta name="generator" content="Hugo 0.84.0">
-    <title>Jumbotron example · Bootstrap v5.0</title>
-
-    <link rel="canonical" href="https://bungferry.github.io/web/">
-
-    
-
-    <!-- Bootstrap core CSS -->
-<link href="css/style.css" rel="stylesheet">
-<link href="css/custom.css" rel="stylesheet">
-
-    <!-- Favicons -->
-<link rel="icon" href="img/favicon.ico">
-<meta name="theme-color" content="#7952b3">
-
-
-    <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-      }
-
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-    </style>
-
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PamekasanCode Twibbon</title>
+    <link href="css/style.css" rel="stylesheet"> 
+    <link rel="stylesheet" href="custom.css">
+</head>
+<body>
+    <div class="preloader">
+        <div class="content">
+            <h1>Tegal Coding <h4>twibbon</h4></h1>
+            <p>Tap dimana saja untuk lanjut...</p>
+        </div>
+    </div>
+    <div class="box">
+        <div class="header">
+            <div class="container">
+                <h2>Make Twibbon Tegal Coding</h2>
+                <p>Masukkan foto kalian dan buatlah twibbon official Tegal Coding</p>
+            </div>
+        </div>
+        <div class="main">
+            <div class="container">
+                <div class="twibbon">
+                    <img src="img/twibbon.png" alt="">
+                </div>
+            </div>
+        </div>
+        <div class="form">
+            <div class="container">
+                <div class="input-group">
+                    <input type="file" id="photo" class="form-control">
+                </div>
+                <div class="input-group mt-1">
+                    <button class="btn btn-primary" id="generate">Download</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <h4>Ferry Ayunda-2021</h4>
+    </footer>
     <script src="js/build/dom-to-image.js"></script>
     <script src="js/build/file-saver.js"></script>
     <script src="js/build/app.js"></script>
-  
-  </head>
-  <body>
-    
-<main>
-  <div class="container py-4">
-    <header class="pb-3 mb-4 border-bottom">
-      <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
-        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="32" class="me-2" viewBox="0 0 118 94" role="img"><title>Bootstrap</title><path fill-rule="evenodd" clip-rule="evenodd" d="M24.509 0c-6.733 0-11.715 5.893-11.492 12.284.214 6.14-.064 14.092-2.066 20.577C8.943 39.365 5.547 43.485 0 44.014v5.972c5.547.529 8.943 4.649 10.951 11.153 2.002 6.485 2.28 14.437 2.066 20.577C12.794 88.106 17.776 94 24.51 94H93.5c6.733 0 11.714-5.893 11.491-12.284-.214-6.14.064-14.092 2.066-20.577 2.009-6.504 5.396-10.624 10.943-11.153v-5.972c-5.547-.529-8.934-4.649-10.943-11.153-2.002-6.484-2.28-14.437-2.066-20.577C105.214 5.894 100.233 0 93.5 0H24.508zM80 57.863C80 66.663 73.436 72 62.543 72H44a2 2 0 01-2-2V24a2 2 0 012-2h18.437c9.083 0 15.044 4.92 15.044 12.474 0 5.302-4.01 10.049-9.119 10.88v.277C75.317 46.394 80 51.21 80 57.863zM60.521 28.34H49.948v14.934h8.905c6.884 0 10.68-2.772 10.68-7.727 0-4.643-3.264-7.207-9.012-7.207zM49.948 49.2v16.458H60.91c7.167 0 10.964-2.876 10.964-8.281 0-5.406-3.903-8.178-11.425-8.178H49.948z" fill="currentColor"></path></svg>
-        <span class="fs-4">STBI</span>
-      </a>
-    </header>
-
-    <div class="p-5 mb-4 bg-light rounded-3">
-      <div class="container-fluid py-5">
-        <h1 class="display-5 fw-bold">Hello World!</h1>
-        <p class="col-md-8 fs-4">Hahahaha...</p>
-        <div class="twibbon">
-        <img src="img/twibbon.png" alt="twibbon">
-        </div>
-        <div class="input-group mb-3">
-        <label class="input-group-text" for="photo">Upload</label>
-        <input type="file" class="form-control" id="photo">
-        </div>
-        <button class="btn btn-primary btn-lg" type="button" id="generate">Download</button>
-      </div>
-    </div>
-
-    
-
-    <footer class="pt-3 mt-4 text-muted border-top">
-      &copy; 2021
-    </footer>
-  </div>
-</main>
-
-
-  </body>
+</body>
 </html>
