@@ -31,6 +31,19 @@ title:  'Hello World!'
   </div>
 </div></p>  
 
-<div class="card" id="frame-selection-wrapper" include-html="{{ site.path }}/public/includes/frame.html">
-           <p>Loading...</p>
-        </div>
+<p><div class="card">
+  <img src="..." class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">Pilih Twibbon</h5>
+    <p class="card-text">Kategori:</p>
+    <p><select class="form-select form-select-lg mb-3" aria-label=".form-select-lg example" id="frame-category"></select></p>
+    <p>Frame List:</p>
+      <p><div class="preview-wrapper">
+        <div id="frame-list" class="freme-list row"></div>
+      </div></p>
+      <p>Selected: <span id="preview-frame-name"><code>Belum ada frame yang dipilih, silakan pilih salah satu dari frame yang tersedia</code></span></p>
+      <p><div class="preview-wrapper" style="display: none;">
+        <img id="preview-frame" />
+      </div></p>
+  </div>
+</div></p>
