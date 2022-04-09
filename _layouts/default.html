@@ -107,7 +107,7 @@
                                             }
                                         });
                                     });
-                                    fabric.Image.fromURL('twibbon_pmii.png',function(img){
+                                    fabric.Image.fromURL('img/twibbon.png',function(img){
                                         img.scaleToWidth(canvas.getWidth());
                                         canvas.setOverlayImage(img, canvas.renderAll.bind(canvas));
                                     });
@@ -138,7 +138,7 @@
                                     };
                                     $("#download").click(function(){
                                         $("#c").get(0).toBlob(function(blob){
-                                            saveAs(blob, "TWB_pmii.png");
+                                            saveAs(blob, "twibbon-by-ferry-ayunda.png");
                                         });
                                     });
                                 </script>
