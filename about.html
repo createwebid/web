@@ -1,15 +1,248 @@
----
-layout: default
-title:  'About Me'
----
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Twibbon Generator">
+    <meta name="author" content="Ferry Ayunda">
+    <meta name="generator" content="Hugo 0.84.0">
+    <title>Twibbon Generator</title>
 
-<h1 class="mt-5">About Me</h1>
+    <link rel="canonical" href="https://bungferry.github.io/web/">
 
-<hr class="col-3 col-md-2 mb-5">
-
-<p class="lead">Hai, yang di sana Nama saya <code class="small">Ferry Ayunda</code> dan saya pembuat <code class="small">Blog</code> ini. Saya membuatnya untuk membantu Anda mempresentasikan ide <code class="small">Blog</code> Anda dengan lebih mudah.</p>
-
-<p class="lead">Kita semua tahu betapa sulitnya memulai sesuatu di web, terutama saat ini. Anda perlu menyiapkan banyak hal, mengonfigurasinya, dan setelah selesai — buat kontennya.</p>
-
-<p class="lead"><code class="small">Blog</code> ini cukup mendasar dan mencakup semua hal penting. Yang harus Anda lakukan adalah mulai menulis!</p>
     
+
+    <!-- Bootstrap core CSS -->
+<link href="css/style.css" rel="stylesheet">
+<link rel="stylesheet" href="css/custom.css">
+    <!-- Favicons -->
+<link rel="icon" href="img/favicon.ico">
+<meta name="theme-color" content="#7952b3">
+
+
+    <style>
+      #twibbon{
+			background-repeat:no-repeat;background-size:cover;background-image: url(img/placeholder.png);width: 300px !important;height: 300px !important;position: relative;margin:0 auto;
+			}
+			.overlay {
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			margin:0px;
+			height: 100%;
+			width: 100%;
+			z-index: 2;
+			background-image:url(img/twibbon.png);
+			background-repeat:no-repeat;
+			background-size: contain;
+			background-position: top left;
+			pointer-events: none
+			}
+
+     main > .container {
+     padding: 60px 15px 0;
+     }
+
+     .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+    <script src="js/jquery.js" type="text/javascript"></script>
+    <script src="js/popper.js" type="text/javascript"></script>
+    <script src="js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="js/croppie.js"></script>
+                <script>	
+		$(document).ready(function(){
+		var twibbonurl="img/twibbon.png";;
+		// Initialized Croppie
+		var croppie_div = $("#image").croppie({
+		viewport: {
+		width: 300,
+		height: 300,
+		boundary: { width: 300, height: 300 }
+		}
+		});
+		// Sets the image from the url # Doesnt Work
+		
+		function readURL(input) {
+			if (input.files && input.files[0]) {
+			var reader = new FileReader();
+			reader.onload = function(e) {
+				croppie_div.croppie('bind', {
+					url: e.target.result
+				});
+				}
+			reader.readAsDataURL(input.files[0]);
+			}
+		}
+		$("#fileinput").change(function() {
+			readURL(this);
+		});
+		$('.generatetwibbon').on('click', function(e) {
+			croppie_div.croppie('result',{
+				type:'base64',
+				format:'jpeg',
+				size:{width:500,height:500}
+			}).then(function(resp){
+				var canvas= document.getElementById('canvas');
+				var context= canvas.getContext("2d");
+				var image = new Image();
+				image.src=resp;
+				image.onload=function(){
+					context.drawImage(image,0,0,canvas.width,canvas.height);
+					var image2 = new Image();
+					image2.src=twibbonurl;
+
+					var maxwidth=500;
+					var maxheight=500;
+					var ratio=0;
+					var width=image2.width;
+					var height=image2.height;
+					if(width>maxwidth){
+						ratio=maxwidth/width;
+						height=height*ratio;
+						width=width*ratio;
+						//console.log("kondisi1");
+
+					}
+					else if(width<maxwidth){
+						ratio=maxwidth/width;
+						height=height*ratio;
+						width=width*ratio;
+						//console.log("kondisi3");
+					}
+					else if(height<maxheight){
+						ratio=maxheight/height;
+						height=height*ratio;
+						width=width*ratio;
+						//console.log("kondisi4");
+					}
+					if(height>maxheight){
+						ratio=maxheight/height;
+						height=height*ratio;
+						width=width*ratio;
+						//console.log("kondisi2");
+					}
+					
+
+					image2.onload=function(){
+						context.drawImage(image2,0,0,width,height);
+						var canvas= document.getElementById('canvas');
+						var imagepreview = document.getElementById('imagepreview');
+						imagepreview.src=canvas.toDataURL("image/png");
+						
+					}
+				}
+			});
+
+		});
+		$('.downloadimage').on('click', function(e) {
+			var canvas= document.getElementById('canvas');
+			var link = document.createElement('a');
+			link.download = "Twibbon-By-Ferry-Ayunda.png";
+			link.href = canvas.toDataURL("image/png");
+			link.click();
+		});
+		$("#filetwibbon").change(function() {
+			if (this.files && this.files[0]) {
+			var reader2 = new FileReader();
+			reader2.onload = function(e) {
+				twibbonurl=e.target.result;
+				$('.overlay')[0].style.backgroundImage="url("+e.target.result+")";
+				}
+			reader2.readAsDataURL(this.files[0]);
+			}
+		});
+		});
+		</script>	
+  </head>
+  <body class="d-flex flex-column h-100">
+    
+<main class="flex-shrink-0">
+  <div class="container py-4">
+    <header class="pb-3 mb-4 border-bottom">
+      <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
+        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="32" class="me-2" viewBox="0 0 118 94" role="img"><title>Bootstrap</title><path fill-rule="evenodd" clip-rule="evenodd" d="M24.509 0c-6.733 0-11.715 5.893-11.492 12.284.214 6.14-.064 14.092-2.066 20.577C8.943 39.365 5.547 43.485 0 44.014v5.972c5.547.529 8.943 4.649 10.951 11.153 2.002 6.485 2.28 14.437 2.066 20.577C12.794 88.106 17.776 94 24.51 94H93.5c6.733 0 11.714-5.893 11.491-12.284-.214-6.14.064-14.092 2.066-20.577 2.009-6.504 5.396-10.624 10.943-11.153v-5.972c-5.547-.529-8.934-4.649-10.943-11.153-2.002-6.484-2.28-14.437-2.066-20.577C105.214 5.894 100.233 0 93.5 0H24.508zM80 57.863C80 66.663 73.436 72 62.543 72H44a2 2 0 01-2-2V24a2 2 0 012-2h18.437c9.083 0 15.044 4.92 15.044 12.474 0 5.302-4.01 10.049-9.119 10.88v.277C75.317 46.394 80 51.21 80 57.863zM60.521 28.34H49.948v14.934h8.905c6.884 0 10.68-2.772 10.68-7.727 0-4.643-3.264-7.207-9.012-7.207zM49.948 49.2v16.458H60.91c7.167 0 10.964-2.876 10.964-8.281 0-5.406-3.903-8.178-11.425-8.178H49.948z" fill="currentColor"></path></svg>
+        <span class="fs-4">TWIBBON</span>
+      </a>
+    </header>
+
+    <div class="container">
+
+   <div class="text-center">
+   <div id="twibbon">
+   <img id="image" src="#" class="rounded" alt="">
+   </div>
+   </div>
+    
+
+    <p><div class="text-center">
+    <p><input id="fileinput" type="file" accept="image/gif, image/jpeg, image/png" style="display: none" />
+    <label for="fileinput" class="btn btn-primary" style="margin:0"><span class="fa fa-upload"></span> Upload Gambar</label></p>
+    <p><button class="generatetwibbon btn btn-primary" data-toggle="modal" data-target="#modal">
+    <span class="fa fa-gear"></span> Buat</button></p>
+    <p><input id="filetwibbon" type="file" accept="image/png" style="display: none" />
+    <label for="filetwibbon" class="btn btn-primary" style="margin:0">
+    <span class="fa fa-upload"></span> Ganti Frame</label></p>
+    </div></p>
+
+    </div>
+
+    <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+
+    <div class="modal-body text-center">
+    <canvas id="canvas" width="500" height="500" style="display:none;"></canvas>
+    <img src="#" id="imagepreview" class="img-fluid" alt="Twibbon Success"/>
+    </div>
+
+    <div class="modal-footer">
+    <button type="button" class="btn btn-success downloadimage" ><span class="fa fa-download"></span> Download</button>
+    <button type="button" class="btn btn-danger" data-dismiss="modal"><span class="fa fa-close"></span> Close</button>
+    </div>
+
+    </div>
+    </div>
+    </div>
+
+    <footer class="pt-3 mt-4 text-muted border-top">
+      &copy; 2021
+    </footer>
+  </div>
+</main>
+
+  <script>
+	$(document).ready(function(){
+	$("#caption").click(function(){
+		this.select();
+		document.execCommand("copy");
+	});
+	$("#tooltipcopy").tooltip({trigger:'click',delay:{"show":500,"hide":200}});
+	$("#tooltipcopy").click(function(){
+		$("#caption").select();
+		document.execCommand("copy");
+		$("#tooltipcopy").attr('data-original-title','copied!').tooltip('show');
+	});
+	$("#tooltipcopy").mouseout(function(){
+		$("#tooltipcopy").tooltip('hide');
+	});
+
+	});
+</script>
+    
+  </body>
+</html>
