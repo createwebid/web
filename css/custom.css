@@ -1,0 +1,52 @@
+.preloader {
+  top: 0;
+  bottom: 0;
+  position: fixed;
+  z-index: 3;
+  width: 100%;
+  min-height: 100%;
+  background-color: #fff;
+}
+
+.preloader .content {
+  position: absolute;
+  width: 70%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+
+}
+
+.preloader p {
+    color: #8888;
+    padding-top: 20px;
+    font-size: 13px;
+}
+
+@keyframes moveBg {
+    0%{background-position: left;}
+    50%{background-position: right;}
+    100%{background-position: left;}
+}
+
+.box {
+    width: 300px;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -40%);
+}
+
+.twibbon {
+    width: 100%;
+    margin: auto;
+    background-image: url(https://i.pinimg.com/736x/3c/dd/24/3cdd249e2d4635457c32d9e52fea0a3b.jpg);
+    background-size: cover;
+    background-position: center center;
+}
+
+.twibbon img {
+    width: 100%
+}
+
